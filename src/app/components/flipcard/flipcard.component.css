@@ -1,0 +1,105 @@
+::ng-deep :root {
+  --height: 50vh;
+  /* --height: 300px; */
+  --width: 20vw;
+  /* --width: 200px; */
+  --expanded-height: calc(var(--height) * 1.5);
+  --expanded-width: calc(var(--width) * 1.5);
+  --card-margin-x: calc((var(--expanded-width) - var(--width)) / 2);
+  --card-margin-y: calc((var(--expanded-height) - var(--height)) / 2);
+}
+
+.cb-FlipCard {
+  background-color: transparent;
+  width: var(--width);
+  height: var(--height);
+  margin: calc(var(--card-margin-y) / 2 + 5px)
+    calc(var(--card-margin-x) / 2 + 5px);
+  perspective: 1000px;
+  /* padding: calc(var(--width)+30px); */
+  transition: all 0.8s ease-in-out;
+  color: var(--primaryTextColor);
+}
+.cb-FlipCard-inner {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: all 0.6s ease-in-out;
+}
+.cb-FlipCard:hover .cb-FlipCard-inner {
+  transform: rotateY(180deg) translateX(var(--card-margin-x))
+    translateY(calc(var(--card-margin-y) * -1));
+  width: var(--expanded-width);
+  height: var(--expanded-height);
+}
+.flip {
+  transform: rotateY(180deg) translateX(calc(var(--expanded-width) / 10))
+    translateY(calc(var(--expanded-height) / -10));
+  width: var(--expanded-width);
+  height: var(--expanded-height);
+}
+.cb-FlipCard-front,
+.cb-FlipCard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  z-index: 999;
+}
+.cb-FlipCard-back {
+  transform: rotateY(180deg);
+}
+.cb-FlipCard-summary {
+  display: flex;
+  background-color: var(--primaryColor);
+  color: var(--lightTextColor);
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+}
+.cb-FlipCard-detail {
+  width: var(--expanded-width);
+  height: var(--expanded-height);
+  perspective: -1010;
+}
+.cb-FlipCard-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  padding: 5%;
+  height: 10%;
+  background-color: var(--primaryColor);
+  color: var(--lightTextColor);
+  font-size: 200%;
+}
+.cb-FlipCard-content {
+  text-align: left;
+  padding: 0px 10px;
+  white-space: wrap;
+  color: --var(--primaryTextColor);
+}
+.cb-FlipCard-link-container {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primaryColor);
+  color: var(--primaryTextColor);
+  position: absolute;
+  bottom: 0;
+}
+.cb-FlipCard-link-container > a {
+  font-weight: normal;
+  color: var(--lightTextColor);
+  text-decoration: none;
+  padding: 0px 20px;
+}
+.cb-FlipCard-link-container > a:hover {
+  transition: 200ms linear 0s;
+  outline: 0 none;
+  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+}

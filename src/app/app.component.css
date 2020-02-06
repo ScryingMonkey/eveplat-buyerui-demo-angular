@@ -1,0 +1,7 @@
+::ng-deep :root {
+  --primaryColor: #1e90ff;
+  --primaryLightColor: #6fc0ff;
+  --primaryDarkColor: #0063cb;
+  --primaryTextColor: #000000;
+  --lightTextColor: #fdfdda;
+}

@@ -1,0 +1,33 @@
+.event-presenter {
+  display: flex;
+  position: relative;
+  padding: 5vh 5vw;
+  color: var(--darkTextColor);
+}
+.cta-section {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 30px;
+}
+.app-event-screen {
+}
+.app-event-screen > header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 30px;
+  background-color: var(--primaryColor);
+  color: var(--lightTextColor);
+  font-size: 200%;
+}
+
+.app-event-screen > footer {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 10vh;
+  padding: 10px 30px;
+  background-color: var(--primaryColor);
+}
+
+.app-event-detail {
+  padding: 10px 30px;
+}
